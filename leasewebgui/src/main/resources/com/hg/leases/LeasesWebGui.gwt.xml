@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='LeasesWebGui'>
+
+	<inherits name='com.google.gwt.user.User' />
+	<inherits name='com.google.gwt.junit.JUnit' />
+	<inherits name='com.google.gwt.user.theme.standard.Standard' />
+
+	<inherits name="com.google.gwt.logging.Logging" />
+
+	<set-property name="gwt.logging.logLevel" value="INFO" />
+	<set-property name="gwt.logging.enabled" value="TRUE" />
+	<set-property name="gwt.logging.popupHandler" value="DISABLED" />
+
+	<entry-point class='com.hg.leases.client.LeasesWebGui' />
+
+	<source path='client' />
+	<source path='shared' />
+
+</module>

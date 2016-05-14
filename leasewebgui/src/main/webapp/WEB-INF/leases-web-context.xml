@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<context:component-scan base-package="com.hg.leases" />
+
+	<import resource="classpath:leases-dao-context.xml" />
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:lease-web.properties" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+
+	<bean id="leaseMaintenanceEmailHelper" class="com.hg.leases.server.LeaseMaintenanceEmailHelper">
+		<constructor-arg name="username" value="${lease.maintenance.email.user}" />
+		<constructor-arg name="password" value="${lease.maintenance.email.password}" />
+		<constructor-arg name="emailFrom" value="${lease.maintenance.email.from}" />
+		<constructor-arg name="emailTo" value="${lease.maintenance.email.to}" />
+		<constructor-arg name="emailCc" value="${lease.maintenance.email.cc}" />
+	</bean>
+
+	<bean id="leaseMaintenanceService" class="com.hg.leases.server.LeaseMaintenanceService">
+		<constructor-arg name="monthlyUpdateInterval" value="${lease.maintenance.update.interval.months}" />
+	</bean>
+
+	<bean id="leaseMaintenanceServiceJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="leaseMaintenanceService" />
+		<property name="targetMethod" value="run" />
+	</bean>
+
+	<bean id="leaseMaintenanceServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="leaseMaintenanceServiceJob" />
+		<property name="cronExpression" value="${lease.maintenance.email.cron}" />
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="leaseMaintenanceServiceTrigger" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="leaseCurrentPeriodGenerator" class="com.hg.leases.server.report.LeaseCurrentPeriodGenerator">
+		<constructor-arg name="minimumToleranceInMonths" value="${lease.period.tolerance.months}"></constructor-arg>
+	</bean>
+
+	<bean id="leaseExcelListReportGenerator" class="com.hg.leases.server.report.excel.LeaseExcelListReportGenerator" />
+
+	<bean id="leaseExcelInvoiceGenerator" class="com.hg.leases.server.report.excel.LeaseExcelInvoiceGenerator" />
+
+	<bean id="leaseExcelScheduleGenerator" class="com.hg.leases.server.report.excel.LeaseExcelScheduleGenerator" />
+
+	<bean id="leaseMyobScheduleGenerator" class="com.hg.leases.server.report.myob.LeaseMyobScheduleGenerator" />
+
+	<util:map id="leaseReportGenerators" key-type="com.hg.leases.shared.GwtLeaseReportType" value-type="com.hg.leases.server.report.LeaseReportGenerator">
+		<entry key="lease_excel" value-ref="leaseExcelListReportGenerator" />
+		<entry key="lease_excel_invoice" value-ref="leaseExcelInvoiceGenerator" />
+		<entry key="lease_excel_schedule" value-ref="leaseExcelScheduleGenerator" />
+		<entry key="lease_myob_schedule" value-ref="leaseMyobScheduleGenerator" />
+	</util:map>
+
+</beans>

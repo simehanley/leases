@@ -1,0 +1,274 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:p2="urn:import:com.hg.leases.client" xmlns:p1="urn:import:com.google.gwt.user.datepicker.client">
+
+	<ui:with field="res" type="com.hg.leases.client.css.LeaseWebGuiResources" />
+
+	<g:HTMLPanel>
+		<g:AbsolutePanel height="504px" width="944px" styleName="{res.style.lightgray}">
+			<g:at top="7" left="10">
+				<g:Label text="Tenant" ui:field="lblTenant" styleName="{res.style.boldlabel}" />
+			</g:at>
+			<g:at top="6" left="82">
+				<g:ListBox width="369px" height="22px" ui:field="cmbTenant" styleName="{res.style.disabledtextbox}" />
+			</g:at>
+			<g:at top="6" left="82">
+				<g:TextBox ui:field="txtTenant" height="16px" width="365px" styleName="{res.style.disabledtextbox}" />
+			</g:at>
+			<g:at top="7" left="461">
+				<g:Label text="Category" width="55px" height="18px" ui:field="lblCategory" styleName="{res.style.boldlabel}" />
+			</g:at>
+			<g:at top="6" left="533">
+				<g:ListBox width="369px" height="22px" ui:field="cmbCategory" styleName="{res.style.disabledtextbox}" />
+			</g:at>
+			<g:at top="33" left="10">
+				<g:TabPanel width="923px" height="426px" ui:field="tabPanel">
+					<g:Tab text="Main">
+						<g:AbsolutePanel width="907px" height="391px">
+							<g:at top="10" left="10">
+								<g:Label text="Location" styleName="{res.style.boldlabel}" />
+							</g:at>
+							<g:at top="33" left="10">
+								<g:AbsolutePanel width="463px" height="61px" styleName="{res.style.paneloutline}">
+									<g:at top="7" left="12">
+										<g:Label text="Premises" ui:field="lblPremises" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="6" left="84">
+										<g:ListBox width="369px" height="22px" ui:field="cmbPremises" styleName="{res.style.disabledtextbox}" />
+									</g:at>
+									<g:at top="35" left="12">
+										<g:Label text="Unit(s)" ui:field="lblUnits" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="33" left="84">
+										<g:TextBox width="222px" height="16px" ui:field="txtUnit" styleName="{res.style.disabledtextbox}" />
+									</g:at>
+									<g:at top="35" left="316">
+										<g:Label text="Area" ui:field="lblArea" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="33" left="352">
+										<g:TextBox width="97px" height="16px" ui:field="txtArea" styleName="{res.style.disabledtextbox}" />
+									</g:at>
+								</g:AbsolutePanel>
+							</g:at>
+							<g:at top="10" left="479">
+								<g:Label text="Dates" styleName="{res.style.boldlabel}" />
+							</g:at>
+							<g:at top="33" left="479">
+								<g:AbsolutePanel width="420px" height="61px" styleName="{res.style.paneloutline}">
+									<g:at top="7" left="7">
+										<g:Label text="Start" ui:field="lblStart" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="6" left="48">
+										<p1:DateBox ui:field="dtStart" width="78px" height="16px" styleName="{res.style.datebox}" />
+									</g:at>
+									<g:at top="8" left="143">
+										<g:Label text="End" ui:field="lblEnd" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="6" left="177">
+										<p1:DateBox ui:field="dtEnd" width="78px" height="16px" styleName="{res.style.datebox}" />
+									</g:at>
+									<g:at top="8" left="268">
+										<g:Label text="Updated" ui:field="lblUpdated" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="7" left="331">
+										<p1:DateBox ui:field="dtUpdated" width="78px" height="16px" styleName="{res.style.datebox}" />
+									</g:at>
+									<g:at top="35" left="7">
+										<g:Label text="Start" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="33" left="48">
+										<p1:DateBox ui:field="dtOptionStart" width="78px" height="16px" styleName="{res.style.datebox}" />
+									</g:at>
+									<g:at top="35" left="143">
+										<g:Label text="End" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="33" left="177">
+										<p1:DateBox ui:field="dtOptionEnd" width="78px" height="16px" styleName="{res.style.datebox}" />
+									</g:at>
+									<g:at top="35" left="270">
+										<g:CheckBox text="Has Option" ui:field="chkHasOption" styleName="{res.style.checkbox}" />
+									</g:at>
+								</g:AbsolutePanel>
+							</g:at>
+							<g:at top="100" left="10">
+								<g:Label text="Details" ui:field="lblDetail" styleName="{res.style.boldlabel}" />
+							</g:at>
+							<g:at top="124" left="10">
+								<g:AbsolutePanel width="633px" height="126px" styleName="{res.style.paneloutline}">
+									<g:at top="10" left="6">
+										<g:Label text="Rent (A)" ui:field="lblRent" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="10" left="96">
+										<g:TextBox width="106px" height="16px" ui:field="txtRent" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="10" left="223">
+										<g:Label text="Rent (%)" ui:field="lblRentPercent" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="9" left="317">
+										<g:TextBox width="106px" height="16px" ui:field="txtRentPercent" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="10" left="447">
+										<g:Label text="Acc. No." ui:field="lblRentACcNo" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="9" left="515">
+										<g:TextBox width="106px" height="16px" ui:field="txtRentAccNo" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="40" left="6">
+										<g:Label text="O/goings (A)" ui:field="lblOutgoings" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="38" left="97">
+										<g:TextBox width="106px" height="16px" ui:field="txtOutgoings" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="40" left="223">
+										<g:Label text="O/goings (%)" ui:field="lblOutgoingsPercent" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="38" left="317">
+										<g:TextBox width="106px" height="16px" ui:field="txtOutgoingsPercent" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="40" left="447">
+										<g:Label text="Acc. No." ui:field="lblOutgoingsACcNo" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="38" left="515">
+										<g:TextBox width="106px" height="16px" ui:field="txtOutgoingsAccNo" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="70" left="6">
+										<g:Label text="Parking (A)" ui:field="lblParking" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="66" left="96">
+										<g:TextBox width="106px" height="16px" ui:field="txtParking" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="70" left="223">
+										<g:Label text="Parking (%)" ui:field="lblParkingPercent" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="66" left="318">
+										<g:TextBox width="106px" height="16px" ui:field="txtParkingPercent" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="70" left="447">
+										<g:Label text="Acc. No." ui:field="lblParkingACcNo" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="66" left="515">
+										<g:TextBox width="106px" height="16px" ui:field="txtParkingAccNo" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="99" left="6">
+										<g:Label text="Signage (A)" ui:field="lblSignage" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="95" left="96">
+										<g:TextBox width="106px" height="16px" ui:field="txtSignage" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="99" left="223">
+										<g:Label text="Signage (%)" ui:field="lblSignagePercent" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="95" left="318">
+										<g:TextBox width="106px" height="16px" ui:field="txtSignagePercent" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="99" left="447">
+										<g:Label text="Acc. No." ui:field="lblSignageACcNo" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="95" left="515">
+										<g:TextBox width="106px" height="16px" ui:field="txtSignageAccNo" styleName="{res.style.numerictextbox}" />
+									</g:at>
+								</g:AbsolutePanel>
+							</g:at>
+							<g:at top="260" left="10">
+								<g:Label text="Bond" styleName="{res.style.boldlabel}" />
+							</g:at>
+							<g:at top="283" left="11">
+								<g:AbsolutePanel width="441px" height="96px" styleName="{res.style.paneloutline}">
+									<g:at top="9" left="5">
+										<g:Label text="Type" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="8" left="60">
+										<g:ListBox width="192px" height="22px" ui:field="cmbBondType" styleName="{res.style.disabledtextbox}" />
+									</g:at>
+									<g:at top="9" left="260">
+										<g:Label text="Amount" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="9" left="317">
+										<g:TextBox width="106px" height="16px" ui:field="txtBondAmount" styleName="{res.style.numerictextbox}" />
+									</g:at>
+									<g:at top="33" left="7">
+										<g:Label text="Detail" styleName="{res.style.boldlabel}" />
+									</g:at>
+									<g:at top="36" left="60">
+										<g:TextArea width="365px" height="45px" ui:field="txtBondNotes" styleName="{res.style.boldtextarea}" />
+									</g:at>
+								</g:AbsolutePanel>
+							</g:at>
+							<g:at top="260" left="458">
+								<g:Label text="Notes" ui:field="lblNotes" styleName="{res.style.boldlabel}" />
+							</g:at>
+							<g:at top="282" left="458">
+								<g:TextArea width="435px" height="95px" ui:field="txtNotes" styleName="{res.style.boldtextareawithborder}" />
+							</g:at>
+						</g:AbsolutePanel>
+					</g:Tab>
+					<g:Tab text="Meta Data">
+						<g:AbsolutePanel width="907px" height="391px">
+							<g:at top="10" left="10">
+								<g:Label text="Historic Rents" styleName="{res.style.boldlabel}" />
+							</g:at>
+							<g:at top="34" left="10">
+								<g:AbsolutePanel width="441px" height="159px" styleName="{res.style.paneloutline}">
+									<g:at top="0" left="0">
+										<p2:LeaseMetaData width="441px" height="157px" ui:field="mtdRent" />
+									</g:at>
+								</g:AbsolutePanel>
+							</g:at>
+							<g:at top="10" left="457">
+								<g:Label text="Notices" styleName="{res.style.boldlabel}" />
+							</g:at>
+							<g:at top="34" left="457">
+								<g:AbsolutePanel width="441px" height="159px" styleName="{res.style.paneloutline}">
+									<g:at top="0" left="0">
+										<p2:LeaseMetaData width="441px" height="157px" ui:field="mtdNotice" />
+									</g:at>
+								</g:AbsolutePanel>
+							</g:at>
+							<g:at top="199" left="10">
+								<g:Label text="Special Conditions" styleName="{res.style.boldlabel}" />
+							</g:at>
+							<g:at top="223" left="10">
+								<g:AbsolutePanel width="441px" height="159px" styleName="{res.style.paneloutline}">
+									<g:at top="0" left="0">
+										<p2:LeaseMetaData width="441px" height="157px" ui:field="mtdSpecialCond" />
+									</g:at>
+								</g:AbsolutePanel>
+							</g:at>
+							<g:at top="199" left="457">
+								<g:Label text="Options" styleName="{res.style.boldlabel}" />
+							</g:at>
+							<g:at top="223" left="457">
+								<g:AbsolutePanel width="441px" height="159px" styleName="{res.style.paneloutline}">
+									<g:at top="0" left="0">
+										<p2:LeaseMetaData width="441px" height="157px" ui:field="mtdOption" />
+									</g:at>
+								</g:AbsolutePanel>
+							</g:at>
+						</g:AbsolutePanel>
+					</g:Tab>
+				</g:TabPanel>
+			</g:at>
+			<g:at top="473" left="10">
+				<g:Label text="Myob Job No." width="97px" height="18px" styleName="{res.style.boldlabel}" />
+			</g:at>
+			<g:at top="471" left="107">
+				<g:TextBox width="118px" height="16px" styleName="{res.style.numerictextbox}" ui:field="txtJobNo" />
+			</g:at>
+			<g:at top="473" left="554">
+				<g:HorizontalPanel width="188px" height="28px" verticalAlignment="ALIGN_MIDDLE">
+					<g:CheckBox ui:field="chkResidential" text="Residential" styleName="{res.style.checkbox}" />
+					<g:CheckBox ui:field="chkInactive" text="Inactive" styleName="{res.style.checkbox}" />
+				</g:HorizontalPanel>
+			</g:at>
+			<g:at top="471" left="748">
+				<g:HorizontalPanel width="185px" height="30px" horizontalAlignment="ALIGN_RIGHT"
+					verticalAlignment="ALIGN_MIDDLE">
+					<g:Button text="Update" ui:field="btnUpdate" width="60px" />
+					<g:Button text="Save" ui:field="btnSave" width="60px" />
+					<g:Button text="Cancel" ui:field="btnCancel" width="60px" />
+				</g:HorizontalPanel>
+			</g:at>
+		</g:AbsolutePanel>
+
+	</g:HTMLPanel>
+</ui:UiBinder> 

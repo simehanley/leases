@@ -1,0 +1,22 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:p1="urn:import:com.google.gwt.user.cellview.client">
+	<ui:style>
+	
+	</ui:style>
+	<g:HTMLPanel>
+		<g:AbsolutePanel height="157px" width="429px">
+			<g:at top="0" left="0">
+				<g:ResizeLayoutPanel width="88%" height="100%">
+					<p1:DataGrid ui:field="grid" />
+				</g:ResizeLayoutPanel>
+			</g:at>
+			<g:at top="45" left="381">
+				<g:PushButton width="32px" height="32px" ui:field="btnUp" />
+			</g:at>
+			<g:at top="86" left="381">
+				<g:PushButton width="32px" height="32px" ui:field="btnDown" />
+			</g:at>
+		</g:AbsolutePanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

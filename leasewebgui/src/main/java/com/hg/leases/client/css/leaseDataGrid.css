@@ -1,0 +1,15 @@
+.dataGridHeader {
+	text-align: center;
+	background-color: #F0F0F0;
+	border-bottom: 1px solid #6f7277;
+	border-left: 1px solid #6f7277;
+	border-right: 1px solid #6f7277;
+}
+
+.dataGridCell {
+	border-bottom: 1px solid #6f7277;
+	border-left: 1px solid #6f7277;
+	border-right: 1px solid #6f7277;
+	border-top: 1px solid #6f7277;
+	border-bottom: 1px solid #6f7277;
+}

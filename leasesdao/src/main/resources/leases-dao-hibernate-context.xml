@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close" abstract="true">
+		<property name="initialSize" value="8" />
+		<property name="maxTotal" value="20" />
+		<property name="maxIdle" value="20" />
+		<property name="minIdle" value="8" />
+		<property name="validationQuery" value="select 1" />
+		<property name="testOnBorrow" value="true" />
+	</bean>
+
+	<!-- DEV -->
+	<bean id="devDataSource" parent="dataSource" lazy-init="true">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/leases" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+
+	<!-- PROD -->
+	<bean id="prodDataSource" parent="dataSource" lazy-init="true">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://DEV.server01.gsa.local:3306/leases" />
+		<property name="username" value="admin" />
+		<property name="password" value="locutus" />
+	</bean>
+
+	<bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="properties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.connection.autocommit">true</prop>
+
+			</props>
+		</property>
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!--property name="dataSource" ref="devDataSource" / -->
+		<property name="dataSource" ref="prodDataSource" />
+		<property name="hibernateProperties" ref="properties" />
+		<property name="packagesToScan">
+			<array>
+				<value>com.hg.leases.model</value>
+			</array>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans>
